@@ -6,6 +6,7 @@ parser.add_argument('-s', action='store', dest='s', help='Start value', default=
 parser.add_argument('-e', action='store', dest='e', help='End value', default=5, type=int)
 parser.add_argument('-p', action='store', dest='p', help='Precision', default=1, type=float)
 parser.add_argument('-o', action='store', dest='o', help='Operators', default='+,-,*,/', type=str)
+parser.add_argument('-f', action='store', dest='f', help='Output file', default='calc.py', type=str)
 args = parser.parse_args()
 
 START = args.s
@@ -13,9 +14,9 @@ END = args.e
 PRECISION = args.p
 OPS = args.o.split(',')
 
-print(START, END, PRECISION, OPS)
+print(START, END, OPS, args.f)
 
-f = open('calc.py', 'w')
+f = open(args.f, 'w')
 
 f.write('#!/usr/bin/python3\n')
 f.write('x = input(\'x=\')\n')
